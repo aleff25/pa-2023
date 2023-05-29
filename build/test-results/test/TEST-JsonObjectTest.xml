@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="JsonObjectTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2023-05-29T18:30:15" hostname="DESKTOP-BPQ7MB8" time="0.045">
+  <properties/>
+  <testcase name="jsonArray_AddElement_GetElementsReturnsAddedElement()" classname="JsonObjectTest" time="0.017"/>
+  <testcase name="jsonArray_ToString_ReturnsValidJsonString()" classname="JsonObjectTest" time="0.019"/>
+  <testcase name="testJsonObjectVisitor()" classname="JsonObjectTest" time="0.001"/>
+  <testcase name="jsonString_ToString_ReturnsValidJsonString()" classname="JsonObjectTest" time="0.0"/>
+  <testcase name="testJsonArrayVisitor()" classname="JsonObjectTest" time="0.0"/>
+  <testcase name="jsonNumber_ToString_ReturnsValidJsonString()" classname="JsonObjectTest" time="0.0"/>
+  <testcase name="jsonBoolean_ToString_ReturnsValidJsonString()" classname="JsonObjectTest" time="0.001"/>
+  <testcase name="jsonObject_AddProperty_GetPropertyReturnsAddedValue()" classname="JsonObjectTest" time="0.001"/>
+  <testcase name="testJsonValueVisitor()" classname="JsonObjectTest" time="0.003"/>
+  <testcase name="jsonObject_ToString_ReturnsValidJsonString()" classname="JsonObjectTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
