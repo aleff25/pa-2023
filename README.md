@@ -126,5 +126,5 @@ Ao inserir um valor em um campo, o editor de JSON tentará converter automaticam
 ## Considerações finais
 
 A classe `JsonVisitor` e suas classes relacionadas fornecem uma abordagem flexível e modular para visitar e manipular estruturas JSON. Elas podem ser úteis ao lidar com a análise e manipulação de dados JSON em aplicativos Kotlin. Sinta-se à vontade para adaptar e estender essas classes conforme necessário para atender aos requisitos
-específicos do seu projeto.
+específicos do seu projeto. \
 O `JsonEditor` fornece uma interface simples e interativa para adicionar e remover campos de um objeto JSON e visualizar o JSON resultante. Ele pode ser útil para tarefas de edição e manipulação de JSON em aplicativos Kotlin. Sinta-se à vontade para personalizar e estender essa classe de acordo com as necessidades específicas do seu projeto.
