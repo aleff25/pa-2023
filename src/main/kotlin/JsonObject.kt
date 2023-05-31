@@ -6,6 +6,7 @@ interface JsonVisitor {
 
 sealed class JsonValue {
     abstract fun accept(visitor: JsonVisitor)
+    abstract fun getValue(): Any
 }
 
 class JsonObject(private val properties: Map<String, JsonValue>) : JsonValue() {
@@ -25,6 +26,10 @@ class JsonObject(private val properties: Map<String, JsonValue>) : JsonValue() {
 
     override fun accept(visitor: JsonVisitor) {
         visitor.visit(this)
+    }
+
+    override fun getValue(): Any {
+        return properties.mapValues { it.value.getValue() }
     }
 
     override fun toString(): String {
@@ -49,6 +54,10 @@ class JsonArray(private val elements: MutableList<JsonValue> = mutableListOf()) 
         visitor.visit(this)
     }
 
+    override fun getValue(): Any {
+        return elements.map { it.getValue() }
+    }
+
     override fun toString(): String {
         val elementsString = elements.joinToString(", ")
         return "[$elementsString]"
@@ -58,6 +67,10 @@ class JsonArray(private val elements: MutableList<JsonValue> = mutableListOf()) 
 class JsonString(private val value: String) : JsonValue() {
     override fun accept(visitor: JsonVisitor) {
         visitor.visit(this)
+    }
+
+    override fun getValue(): Any {
+        return value
     }
 
     override fun toString(): String {
@@ -70,6 +83,10 @@ class JsonNumber(private val value: Number) : JsonValue() {
         visitor.visit(this)
     }
 
+    override fun getValue(): Any {
+        return value
+    }
+
     override fun toString(): String {
         return value.toString()
     }
@@ -80,15 +97,19 @@ class JsonBoolean(private val value: Boolean) : JsonValue() {
         visitor.visit(this)
     }
 
+    override fun getValue(): Any {
+        return value
+    }
+
     override fun toString(): String {
         return value.toString()
     }
 }
 
 class JsonVisitorImpl : JsonVisitor {
-    private val searchResults: MutableList<JsonValue> = mutableListOf()
+    private val searchResults: MutableList<Any> = mutableListOf()
 
-    fun getSearchResults(): List<JsonValue> {
+    fun getSearchResults(): List<Any> {
         return searchResults.toList()
     }
 
@@ -101,7 +122,6 @@ class JsonVisitorImpl : JsonVisitor {
     }
 
     override fun visit(jsonValue: JsonValue) {
-        // Implementar ações de pesquisa aqui
         searchResults.add(jsonValue)
     }
 }
